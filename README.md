@@ -1,10 +1,11 @@
 # Grep on Hadoop using Cloudera
 
 ## Project Overview
-This project demonstrates the implementation of a **Grep program using Hadoop MapReduce** to search for a specific keyword or pattern from a large text file stored in **HDFS**.  
-The application is developed in **Java** and executed on **Apache Hadoop** running inside the **Cloudera QuickStart VM**.  
+This project focuses on designing and implementing a Grep application using Hadoop MapReduce to perform efficient keyword or pattern-based searching on large-scale text data stored in the Hadoop Distributed File System (HDFS). Instead of processing files on a single machine, the application takes advantage of Hadoop’s distributed architecture to handle large datasets by splitting the input data across multiple nodes and processing it in parallel.
 
-The program mimics the traditional Unix `grep` command but leverages Hadoop’s distributed processing capabilities to efficiently process large datasets.
+The application is developed entirely in Java and executed on Apache Hadoop running inside the Cloudera QuickStart Virtual Machine, which provides a pre-configured environment for learning and experimenting with Hadoop ecosystem components. By using MapReduce, the project demonstrates how data-intensive text processing tasks can be broken down into smaller units of work, processed simultaneously, and then combined to produce the final result.
+
+Functionally, this project replicates the behavior of the traditional Linux grep command, but in a scalable and distributed manner. While the standard grep utility works well for small files on a local system, this Hadoop-based implementation is suitable for searching keywords or patterns within very large text files, such as logs or documents, stored in HDFS. Overall, the project highlights the power of distributed computing and serves as a practical introduction to Hadoop MapReduce programming, HDFS operations, and large-scale text analysis.
 
 **Sample Input File Name:** `constitution.txt`
 
