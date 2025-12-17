@@ -117,7 +117,7 @@ The program mimics the traditional Unix `grep` command but leverages Hadoop’s 
 - Export as `GrepHadoop.jar`
 
 ### 4. Uploading Sample File to HDFS
-```bash
+
 hadoop fs -put constitunial /user/cloudera/input/
 
 **### Running Grep MapReduce Job**
