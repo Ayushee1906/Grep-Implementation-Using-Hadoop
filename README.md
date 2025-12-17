@@ -63,3 +63,113 @@ The program mimics the traditional Unix `grep` command but leverages Hadoop’s 
 ---
 
 ## Project Structure
+
+GrepHadoopProject/
+│
+├── src/
+│ └── com.hadoop.grep/
+│ ├── GrepMapper.java
+│ ├── GrepReducer.java
+│ └── GrepDriver.java
+│
+├── lib/
+│ └── Hadoop external JARs
+│
+└── GrepHadoop.jar
+
+
+
+
+---
+
+## Java Program Explanation
+
+### Mapper (Grep Logic)
+- Reads each line from the input file
+- Checks whether the line contains the specified keyword/pattern
+- Emits the matched line with a count of `1`
+
+**Input:**  
+`<LongWritable, Text>`
+
+**Output:**  
+`<Text, IntWritable>`
+
+---
+
+### Reducer
+- Aggregates the counts of matched lines
+- Outputs the final matched lines and their occurrences
+
+---
+
+### Driver Class
+- Configures the MapReduce job
+- Sets:
+  - Mapper class
+  - Reducer class
+  - Input and output paths
+- Submits the job to Hadoop for execution
+
+---
+
+## Steps to Execute the Project on Cloudera
+
+### 1. Creating Java Project in Eclipse
+- Open Eclipse
+- Create a new **Java Project**
+- Add package and Java classes (Mapper, Reducer, Driver)
+
+### 2. Adding External Hadoop JARs
+- Right-click project → **Build Path**
+- Add required Hadoop JARs from Cloudera installation
+
+### 3. Exporting the Project as a JAR
+- Right-click project → **Export**
+- Select **Runnable JAR**
+- Export as `GrepHadoop.jar`
+
+### 4. Uploading Sample File to HDFS
+```bash
+hadoop fs -put constitunial /user/cloudera/input/
+
+**### Running Grep MapReduce Job**
+hadoop jar GrepHadoop.jar com.hadoop.grep.GrepDriver \
+/user/cloudera/input/constitunial /user/cloudera/output
+
+
+### Output Directory Creation
+
+Hadoop automatically creates the output directory
+
+Ensure the directory does not already exist
+
+###  Output File
+
+part-r-00000
+
+Reading Output
+Using hadoop fs -cat
+hadoop fs -cat /user/cloudera/output/part-r-00000
+
+Transferring Output from Cloudera to Local System
+Using hadoop fs -get
+hadoop fs -get /user/cloudera/output/part-r-00000 /home/cloudera/
+
+### Using WinSCP
+
+Navigate to the output file location in Cloudera
+
+Download part-r-00000 to the local machine
+
+### HDFS Commands Used
+hadoop fs -ls
+hadoop fs -mkdir
+hadoop fs -put
+hadoop fs -cat
+hadoop fs -get
+hadoop fs -rm -r
+
+Conclusion
+
+This project successfully demonstrates how to implement a Grep program using Hadoop MapReduce. By running the application on Cloudera QuickStart VM, it showcases the power of distributed processing for text searching tasks. The project also provides hands-on experience with HDFS commands, MapReduce programming, and file transfer using WinSCP.
