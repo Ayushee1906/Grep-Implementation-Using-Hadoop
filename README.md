@@ -160,8 +160,4 @@ The program mimics the traditional Unix `grep` command but leverages Hadoop’s 
 ---
 ### Conclusion
 
-This project successfully demonstrates how to implement a **Grep program using Hadoop MapReduce**.
-
-By running the application on **Cloudera QuickStart VM**, it showcases the power of distributed processing for text searching tasks.
-
-The project also provides hands-on experience with **HDFS commands**, **MapReduce programming**, and **file transfer using WinSCP**.
+This project successfully demonstrates how to implement a **Grep program using Hadoop MapReduce**. By running the application on **Cloudera QuickStart VM**, it showcases the power of distributed processing for text searching tasks. The project also provides hands-on experience with **HDFS commands**, **MapReduce programming**, and **file transfer using WinSCP**.
